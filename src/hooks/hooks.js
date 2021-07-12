@@ -12,8 +12,7 @@ export const useCounter = () => {
       setCount(0);
     } else {
       setCount(count - 1);
-
-    }
+    };
   };
 
   const zero = () => {
@@ -22,19 +21,5 @@ export const useCounter = () => {
 
   return {
     count, setCount, increase, decrease, zero
-  }
-};
-
-export const useField = (type) => {
-  const [value, setValue] = useState('');
-
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  return {
-    type,
-    value,
-    onChange
   };
 };

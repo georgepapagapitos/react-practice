@@ -1,8 +1,8 @@
 import './App.css';
 import Counter from './components/Counter/Counter';
 import Form from './components/Form/Form';
+import Posts from './components/Posts/Posts';
 import Welcome from './components/Welcome/Welcome';
-import axios from 'axios';
 
 export default function App() {
   return (
@@ -10,6 +10,7 @@ export default function App() {
       <Welcome />
       <Counter />
       <Form />
+      <Posts />
     </center>
   );
 };
