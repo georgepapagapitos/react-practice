@@ -28,7 +28,7 @@ export default function App() {
         <Route path="/counter" component={Counter} />
         <Route path="/form" component={Form} />
         <Route path="/posts" render={(props) => (
-          <Posts {...props} error={error} setError={setError} setSuccess={setSuccess} />
+          <Posts error={error} setError={setError} setSuccess={setSuccess} success={success} />
         )} />
         <Route path="/upload" component={FileUpload} />
         <Route path="/tweet/:tweetId" component={Tweet} />

@@ -7,5 +7,9 @@ export default function ComponentA() {
 
   console.log('isMobile', isMobile);
 
-  return <></>;
+  return (
+    <>
+
+    </>
+  );
 }
