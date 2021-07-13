@@ -1,16 +1,21 @@
+import axios from 'axios';
 import { useState } from 'react';
 
 export default function Form() {
-
-  const defaultFormData = { title: '', content: '' }
-
+  const defaultFormData = { title: '', body: '', userId: 1 }
   const [formData, setFormData] = useState(defaultFormData);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+  const { title, body } = formData;
 
-  const { title, content } = formData;
-
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData);
+    try {
+      await axios.post('https://jsonplaceholder.typicode.com/posts', formData);
+      setSuccess(true);
+    } catch (error) {
+      setError(true);
+    }
     setFormData(defaultFormData);
   };
 
@@ -23,18 +28,21 @@ export default function Form() {
 
   return (
     <>
-      <h1>form</h1>
-      <p>create a post</p>
+      <h2>Form</h2>
+      <p>Create a post</p>
       <form onSubmit={onSubmit}>
-        <label htmlFor="title">title</label>
+        <label htmlFor="title">Title</label>
         <input type="text" id="title" value={title} onChange={onChange} />
         <br />
-        <label htmlFor="content">content</label>
-        <input type="text" id="content" value={content} onChange={onChange} />
+        <label htmlFor="content">Content</label>
+        <input type="text" id="body" value={body} onChange={onChange} />
         <br />
-        <button type="submit">submit</button>
+        <label htmlFor="submit">Submit</label>
+        <button type="submit" id="submit">Submit</button>
       </form>
+
+      {error && <p>Could not submit post, try again later...</p>}
+      {success && <p>Post successfully submitted</p>}
     </>
   );
-
 };
