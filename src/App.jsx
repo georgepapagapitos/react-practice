@@ -9,7 +9,7 @@ import Form from './components/Form/Form';
 import Posts from './components/Posts/Posts';
 import Welcome from './components/Welcome/Welcome';
 import FileUpload from './components/FileUpload/FileUpload';
-import ComponentA from './components/ComponentA';
+import IsMobile from './components/IsMobile/IsMobile';
 import Header from './components/Header/Header';
 import Dashboard from './components/Dashboard/Dashboard';
 import Tweet from './components/Tweet/Tweet';
@@ -27,14 +27,14 @@ export default function App() {
       <Switch>
         <Route path="/counter" component={Counter} />
         <Route path="/form" component={Form} />
-        <Route path="/posts" render={(props) => (
+        <Route path="/posts" render={() => (
           <Posts error={error} setError={setError} setSuccess={setSuccess} success={success} />
         )} />
         <Route path="/upload" component={FileUpload} />
         <Route path="/tweet/:tweetId" component={Tweet} />
         <Route path="/">
           <Welcome />
-          <ComponentA />
+          <IsMobile />
         </Route>
         <Redirect to="/" />
       </Switch>

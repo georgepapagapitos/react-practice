@@ -8,7 +8,7 @@ export default function Posts({ error, setError, setSuccess }) {
 
   const history = useHistory();
 
-  console.log('data from dashboard', history);
+  console.log('data from dashboard', history.location.state);
 
   useEffect(() => {
     const fetchPosts = async () => {

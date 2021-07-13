@@ -1,7 +1,7 @@
 import React from 'react';
-import useIsMobile from '../hooks/useIsMobile';
+import useIsMobile from '../../hooks/useIsMobile';
 
-export default function ComponentA() {
+export default function IsMobile() {
 
   const isMobile = useIsMobile();
 
