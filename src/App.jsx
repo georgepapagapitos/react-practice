@@ -12,6 +12,7 @@ import FileUpload from './components/FileUpload/FileUpload';
 import ComponentA from './components/ComponentA';
 import Header from './components/Header/Header';
 import Dashboard from './components/Dashboard/Dashboard';
+import Tweet from './components/Tweet/Tweet';
 
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
           <Posts {...props} error={error} setError={setError} setSuccess={setSuccess} />
         )} />
         <Route path="/upload" component={FileUpload} />
+        <Route path="/tweet/:tweetId" component={Tweet} />
         <Route path="/">
           <Welcome />
           <ComponentA />
