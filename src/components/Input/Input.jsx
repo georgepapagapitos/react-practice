@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { InputValueContext } from '../../context/InputValueContext';
 
-export default function Input({ setInputValue }) {
+export default function Input() {
+
+  const { dispatch } = useContext(InputValueContext);
+
   return (
     <>
       <h1>Multiplied by two app</h1>
-      <input type="number" onChange={(event) => setInputValue(event.target.value)} />
+      <input type="number" onChange={(e) => dispatch({ type: 'SET_INPUT_VALUE' })} />
     </>
   );
 };

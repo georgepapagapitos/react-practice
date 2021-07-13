@@ -1,8 +1,9 @@
-export default function MultipliedCalculations({ children }) {
+import React from 'react';
+import MultipliedByTwo from '../MutlipliedByTwo/MultipliedByTwo';
+
+export default function MultipliedCalculations() {
   return (
-    <>
-      {children}
-    </>
+    <MultipliedByTwo />
   );
 };
 
