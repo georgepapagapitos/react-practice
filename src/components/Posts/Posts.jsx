@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 export default function Posts({ error, setError, setSuccess }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const history = useHistory();
+
+  console.log('data from dashboard', history);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -23,7 +28,8 @@ export default function Posts({ error, setError, setSuccess }) {
 
   const onClick = async (id) => {
     try {
-      await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
+      const response = await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
+      console.log(response.status);
       setSuccess(true);
     } catch (error) {
       console.log(error);

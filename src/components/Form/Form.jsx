@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 export default function Form() {
+  const history = useHistory();
   const defaultFormData = { title: '', body: '', userId: 1 }
   const [formData, setFormData] = useState(defaultFormData);
   const [success, setSuccess] = useState(false);
@@ -43,6 +45,7 @@ export default function Form() {
 
       {error && <p>Could not submit post, try again later...</p>}
       {success && <p>Post successfully submitted</p>}
+      <button onClick={() => history.goBack()}>Go Back</button>
     </>
   );
 };
